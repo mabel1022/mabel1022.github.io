@@ -1,0 +1,861 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gong Yoo Fanpage</title>
+
+    <style>
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111111;
+            color: #eeeeee;
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 8%;
+
+            background-color: #151515;
+            border-bottom: 1px solid #333333;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #eeeeee;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #c9a86a;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 90vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 60px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.65),
+                    rgba(0, 0, 0, 0.75)
+                ),
+                #222222;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-image {
+            width: 220px;
+            height: 220px;
+
+            margin: 0 auto 30px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            letter-spacing: 5px;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            font-size: 1.2rem;
+            font-weight: normal;
+            color: #c9a86a;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            color: #cccccc;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+
+            padding: 12px 28px;
+
+            border: 1px solid #c9a86a;
+
+            color: #c9a86a;
+
+            text-decoration: none;
+
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background-color: #c9a86a;
+            color: #111111;
+        }
+
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        section {
+            padding: 80px 10%;
+        }
+
+        section h2 {
+            text-align: center;
+
+            font-size: 2.3rem;
+
+            margin-bottom: 40px;
+
+            color: #c9a86a;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-image {
+            width: 300px;
+            height: 400px;
+
+            flex-shrink: 0;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+        .about-text {
+            color: #cccccc;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           FILMOGRAPHY
+        ========================= */
+
+        .filmography {
+            background-color: #181818;
+        }
+
+        .movie-container {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 25px;
+        }
+
+        .movie {
+            background-color: #222222;
+
+            padding: 20px;
+
+            border: 1px solid #333333;
+
+            transition: 0.3s;
+        }
+
+        .movie:hover {
+            transform: translateY(-8px);
+
+            border-color: #c9a86a;
+        }
+
+        .movie-image {
+            width: 100%;
+            height: 280px;
+
+            object-fit: cover;
+
+            display: block;
+
+            margin-bottom: 15px;
+        }
+
+        .movie h3 {
+            color: #eeeeee;
+            margin-bottom: 5px;
+        }
+
+        .movie p {
+            color: #999999;
+        }
+
+
+        /* =========================
+           WHY I LIKE HIM
+        ========================= */
+
+        .reasons {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(200px, 1fr));
+
+            gap: 25px;
+        }
+
+        .reason {
+            padding: 30px;
+
+            text-align: center;
+
+            background-color: #1c1c1c;
+
+            border: 1px solid #333333;
+        }
+
+        .reason span {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .reason h3 {
+            color: #c9a86a;
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================
+           ACHIEVEMENTS
+        ========================= */
+
+        .achievements {
+            display: flex;
+            justify-content: space-around;
+
+            text-align: center;
+
+            flex-wrap: wrap;
+
+            gap: 30px;
+        }
+
+        .achievement {
+            min-width: 180px;
+        }
+
+        .achievement h3 {
+            font-size: 2.5rem;
+            color: #c9a86a;
+        }
+
+        .achievement p {
+            color: #bbbbbb;
+        }
+
+
+        /* =========================
+           FUN FACTS
+        ========================= */
+
+        .facts {
+            text-align: center;
+
+            background-color: #181818;
+        }
+
+        #fact {
+            min-height: 60px;
+
+            max-width: 700px;
+
+            margin: 0 auto 25px;
+
+            color: #cccccc;
+
+            font-size: 1.1rem;
+        }
+
+        .fact-button {
+            padding: 12px 25px;
+
+            background-color: transparent;
+
+            border: 1px solid #c9a86a;
+
+            color: #c9a86a;
+
+            cursor: pointer;
+
+            font-size: 1rem;
+
+            transition: 0.3s;
+        }
+
+        .fact-button:hover {
+            background-color: #c9a86a;
+            color: #111111;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+
+            padding: 30px;
+
+            background-color: #0a0a0a;
+
+            color: #888888;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 12px;
+                font-size: 0.85rem;
+            }
+
+            .hero h1 {
+                font-size: 2.7rem;
+            }
+
+            .about {
+                flex-direction: column;
+            }
+
+            .about-image {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav>
+
+        <div class="logo">
+            GONG YOO
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#filmography">Filmography</a>
+            </li>
+
+            <li>
+                <a href="#reasons">Why Him?</a>
+            </li>
+
+            <li>
+                <a href="#facts">Fun Facts</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <img
+                src="gongyoosmall.jpeg"
+                alt="Gong Yoo"
+                class="hero-image"
+            >
+
+            <h1>GONG YOO</h1>
+
+            <h2>
+                ACTOR • STORYTELLER • ICON
+            </h2>
+
+            <p>
+                Celebrating the career and works of one of
+                South Korea's most beloved actors.
+            </p>
+
+            <a href="#about" class="button">
+                Explore His Story
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================= -->
+
+    <section id="about">
+
+        <h2>About Gong Yoo</h2>
+
+        <div class="about">
+
+            <img
+                src="gongyooprofile.jpg"
+                alt="Gong Yoo"
+                class="about-image"
+            >
+
+            <div class="about-text">
+
+                <p>
+                    Gong Yoo is a South Korean actor known for
+                    his versatile performances across television
+                    dramas and films.
+                </p>
+
+                <p>
+                    He gained widespread recognition through
+                    popular dramas such as <i>Coffee Prince</i>
+                    and <i>Guardian: The Lonely and Great God</i>,
+                    commonly known as <i>Goblin</i>.
+                </p>
+
+                <p>
+                    His film career includes critically acclaimed
+                    productions such as <i>Train to Busan</i> and
+                    <i>The Age of Shadows</i>.
+                </p>
+
+                <p>
+                    Beyond his acting career, Gong Yoo is admired
+                    by fans for his charismatic screen presence,
+                    versatility and thoughtful approach to his work.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FILMOGRAPHY
+    ========================= -->
+
+    <section class="filmography" id="filmography">
+
+        <h2>Notable Works</h2>
+
+        <div class="movie-container">
+
+
+            <!-- COFFEE PRINCE -->
+
+            <div class="movie">
+
+                <img
+                    src="coffeeprince.jpg"
+                    alt="Coffee Prince"
+                    class="movie-image"
+                >
+
+                <h3>Coffee Prince</h3>
+
+                <p>2007 • Drama</p>
+
+            </div>
+
+
+            <!-- TRAIN TO BUSAN -->
+
+            <div class="movie">
+
+                <img
+                    src="traintobusan.jpg"
+                    alt="Train to Busan"
+                    class="movie-image"
+                >
+
+                <h3>Train to Busan</h3>
+
+                <p>2016 • Film</p>
+
+            </div>
+
+
+            <!-- GOBLIN -->
+
+            <div class="movie">
+
+                <img
+                    src="goblin.jpg"
+                    alt="Goblin"
+                    class="movie-image"
+                >
+
+                <h3>Goblin</h3>
+
+                <p>2016 • Drama</p>
+
+            </div>
+
+
+            <!-- THE SILENT SEA -->
+
+            <div class="movie">
+
+                <img
+                    src="thesilentsea.jpg"
+                    alt="The Silent Sea"
+                    class="movie-image"
+                >
+
+                <h3>The Silent Sea</h3>
+
+                <p>2021 • Series</p>
+
+            </div>
+
+
+            <!-- SQUID GAME -->
+
+            <div class="movie">
+
+                <img
+                    src="squidgame.jpg"
+                    alt="Squid Game"
+                    class="movie-image"
+                >
+
+                <h3>Squid Game</h3>
+
+                <p>2021 • Series</p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         WHY I LIKE GONG YOO
+    ========================= -->
+
+    <section id="reasons">
+
+        <h2>Why I Like Gong Yoo</h2>
+
+        <div class="reasons">
+
+
+            <div class="reason">
+
+                <span>🎬</span>
+
+                <h3>Versatile</h3>
+
+                <p>
+                    He has taken on a wide range of characters
+                    across different genres.
+                </p>
+
+            </div>
+
+
+            <div class="reason">
+
+                <span>✨</span>
+
+                <h3>Charismatic</h3>
+
+                <p>
+                    His screen presence makes his characters
+                    memorable and engaging.
+                </p>
+
+            </div>
+
+
+            <div class="reason">
+
+                <span>❤️</span>
+
+                <h3>Relatable</h3>
+
+                <p>
+                    His performances often portray emotions
+                    that audiences can connect with.
+                </p>
+
+            </div>
+
+
+            <div class="reason">
+
+                <span>🌟</span>
+
+                <h3>Inspiring</h3>
+
+                <p>
+                    His long-lasting career demonstrates his
+                    dedication to acting and storytelling.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ACHIEVEMENTS
+    ========================= -->
+
+    <section class="filmography">
+
+        <h2>Career Highlights</h2>
+
+        <div class="achievements">
+
+
+            <div class="achievement">
+
+                <h3>20+</h3>
+
+                <p>
+                    Years in the entertainment industry
+                </p>
+
+            </div>
+
+
+            <div class="achievement">
+
+                <h3>🎬</h3>
+
+                <p>
+                    Film and television roles
+                </p>
+
+            </div>
+
+
+            <div class="achievement">
+
+                <h3>🌎</h3>
+
+                <p>
+                    International recognition
+                </p>
+
+            </div>
+
+
+            <div class="achievement">
+
+                <h3>⭐</h3>
+
+                <p>
+                    Beloved by fans worldwide
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         JAVASCRIPT FUN FACTS
+    ========================= -->
+
+    <section class="facts" id="facts">
+
+        <h2>Gong Yoo Fun Facts</h2>
+
+        <p id="fact">
+            Click the button below to discover a fun fact!
+        </p>
+
+        <button
+            class="fact-button"
+            onclick="showFact()"
+        >
+            Show Me a Fact
+        </button>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+            Made with ❤️ by a Gong Yoo fan
+        </p>
+
+        <p>
+            This is a fan-made webpage.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        const facts = [
+
+            "Gong Yoo's real name is Gong Ji-cheol.",
+
+            "He made his acting debut in the early 2000s.",
+
+            "Coffee Prince helped establish Gong Yoo as a leading actor.",
+
+            "Gong Yoo starred as Seok-woo in the internationally successful film Train to Busan.",
+
+            "He played Kim Shin, also known as the Goblin, in the drama Guardian: The Lonely and Great God.",
+
+            "Gong Yoo appeared in Squid Game as the mysterious recruiter who introduces players to the game."
+
+        ];
+
+
+        let currentFact = 0;
+
+
+        function showFact() {
+
+            const factElement =
+                document.getElementById("fact");
+
+            factElement.textContent =
+                facts[currentFact];
+
+            currentFact++;
+
+            if (currentFact >= facts.length) {
+
+                currentFact = 0;
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
